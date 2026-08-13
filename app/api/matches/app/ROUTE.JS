@@ -75,7 +75,46 @@ export async function GET() {
       status: "FINISHED",
       league: "الدوري المصري"
     }
+  ];import { NextResponse } from 'next/server';
+
+export async function GET() {
+  const matches = [
+    {
+      id: 1,
+      homeTeam: "المنتخب التونسي",
+      awayTeam: "المنتخب الجزائري",
+      homeScore: 1,
+      awayScore: 1,
+      status: "LIVE",
+      minute: "60'",
+      league: "مباراة ودية الدولية",
+      type: "FRIENDLY"
+    },
+    {
+      id: 2,
+      homeTeam: "ريال مدريد",
+      awayTeam: "ميلان",
+      homeScore: 2,
+      awayScore: 3,
+      status: "FINISHED",
+      league: "ودية الأندية / الجولة الصيفية",
+      type: "FRIENDLY"
+    },
+    {
+      id: 3,
+      homeTeam: "برشلونة",
+      awayTeam: "بايرن ميونخ",
+      homeScore: 0,
+      awayScore: 0,
+      status: "UPCOMING",
+      time: "21:00",
+      league: "دوري أبطال أوروبا",
+      type: "OFFICIAL"
+    }
   ];
+
+  return NextResponse.json({ matches });
+}
 
   return NextResponse.json({ matches: dummyMatches });
 }
